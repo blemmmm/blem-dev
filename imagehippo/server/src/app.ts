@@ -1,16 +1,16 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable camelcase */
 
-import * as express from 'express';
-import * as cors from 'cors';
+import express from 'express';
+import cors from 'cors';
 import * as fs from 'fs';
 import * as path from 'path';
-import * as assert from 'assert';
-import * as sharp from 'sharp';
+import assert from 'assert';
+import sharp from 'sharp';
 import * as cryptojs from 'crypto';
 import * as mime_types from 'mime-types';
 import * as body_parser from 'body-parser';
-import * as multer from 'multer';
+import multer from 'multer';
 import * as os from 'os';
 
 const app = express();
