@@ -3,7 +3,7 @@ services:
   groufie-server:
     build:
       context: ./groufie/ # path of root directory
-      dockerfile: ./groufie/Dockerfile # path relative to root directory
+      dockerfile: ./Dockerfile # path relative to root directory
     restart: unless-stopped
     ports:
       - 3000:3000
@@ -12,7 +12,7 @@ services:
   imagehippo-server:
     build:
       context: ./imagehippo/ # path of root directory
-      dockerfile: ./imagehippo/Dockerfile # path relative to root directory
+      dockerfile: ./Dockerfile # path relative to root directory
     restart: unless-stopped
     ports:
       - 3001:3001
