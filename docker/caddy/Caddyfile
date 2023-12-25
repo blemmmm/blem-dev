@@ -5,10 +5,6 @@
 }
 
 groufie.blem.dev {
-  header {
-    Strict-Transport-Security "max-age=63072000"
-    defer
-  }
   handle {
     reverse_proxy groufie-server:3000
   }
@@ -18,10 +14,6 @@ groufie.blem.dev {
 }
 
 imagehippo.blem.dev {
-  header {
-    Strict-Transport-Security "max-age=63072000"
-    defer
-  }
   handle {
     reverse_proxy imagehippo-server:3001
   }
