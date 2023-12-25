@@ -1,14 +1,23 @@
 version: "3.8"
 services:
-  server:
+  groufie-server:
     build:
-      context: ./ # path of root directory
-      dockerfile: ./docker/server/Dockerfile # path relative to root directory
+      context: ./groufie/ # path of root directory
+      dockerfile: ./groufie/Dockerfile # path relative to root directory
     restart: unless-stopped
     ports:
       - 3000:3000
     networks:
-      - groufie-network
+      - blem-network
+  imagehippo-server:
+    build:
+      context: ./imagehippo/ # path of root directory
+      dockerfile: ./imagehippo/Dockerfile # path relative to root directory
+    restart: unless-stopped
+    ports:
+      - 3001:3001
+    networks:
+      - blem-network
   caddy:
     image: caddy:2
     restart: unless-stopped
@@ -24,9 +33,10 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
     networks:
-      - groufie-network
+      - blem-network
     depends_on:
-      - server
+      - groufie-server
+      - imagehippo-server
 networks:
-  groufie-network:
-    name: groufie-network
+  blem-network:
+    name: blem-network
