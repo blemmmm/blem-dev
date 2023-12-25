@@ -1,30 +1,42 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable camelcase */
 
-/* eslint-disable import/no-extraneous-dependencies */
-const express = require('express');
-const cors = require('cors');
-const fs = require('fs');
-const path = require('path');
-const sharp = require('sharp');
-const cryptojs = require('crypto');
-const mime_types = require('mime-types');
-const bodyParser = require('body-parser');
-const multer = require('multer');
+import * as express from 'express';
+import * as cors from 'cors';
+import * as fs from 'fs';
+import * as path from 'path';
+import * as assert from 'assert';
+import * as sharp from 'sharp';
+import * as cryptojs from 'crypto';
+import * as mime_types from 'mime-types';
+import * as body_parser from 'body-parser';
+import * as multer from 'multer';
+import * as os from 'os';
 
 const app = express();
 const port = process.env.PORT || 3001;
 
 // Define routes and middleware here
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(body_parser.json());
+app.use(body_parser.urlencoded({ extended: true }));
 
-app.use(
-  cors({
-    origin: 'https://imagehippo.blem.dev', // Replace with your client's URL
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true, // Allow cookies and authentication headers
-  }),
-);
+if (os.platform() === 'linux') {
+  app.use(
+    cors({
+      origin: 'https://imagehippo.blem.dev', // Replace with your client's URL
+      methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+      credentials: true, // Allow cookies and authentication headers
+    }),
+  );
+} else {
+  app.use(
+    cors({
+      origin: true,
+      methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+      credentials: true, // Allow cookies and authentication headers
+    }),
+  );
+}
 
 app.use(express.static('../../client/dist/'));
 
@@ -33,32 +45,43 @@ app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
 
-app.post('/upload', multer().single('file'), async (request: any, response: any) => {
-  const file = await request.file;
-  const file_buffer = await file.buffer;
-  const file_hash = cryptojs.createHash('sha224').update(file_buffer).digest('hex');
-  const file_extname = path.extname(file.originalname);
-  const file_new_name = file_hash.concat(file_extname);
+const temp_dir = path.join(process.cwd(), './temp/');
 
-  const old_metadata = await sharp(file_buffer).metadata();
+if (fs.existsSync(temp_dir) === false) {
+  fs.mkdirSync(temp_dir);
+}
 
-  // convert image data into JPEG format
-  const converted_buffer = await sharp(file_buffer).jpeg({ mozjpeg: true }).toBuffer();
+app.post(
+  '/upload',
+  multer().single('file'),
+  async (request: express.Request, response: express.Response) => {
+    const { file } = request;
+    assert(file instanceof Object);
+    const file_buffer = file.buffer;
+    const file_hash = cryptojs.createHash('sha224').update(file_buffer).digest('hex');
+    const file_extname = path.extname(file.originalname);
+    const file_new_name = file_hash.concat(file_extname);
 
-  const new_metadata = await sharp(converted_buffer).metadata();
+    const old_metadata = await sharp(file_buffer).metadata();
 
-  fs.writeFileSync(path.join(process.cwd(), `./temp/${file_new_name}`), file_buffer);
-  return response.status(200).send({
-    filename: file_new_name,
-    old_metadata,
-    new_metadata,
-  });
-});
+    // convert image data into JPEG format
+    const converted_buffer = await sharp(file_buffer).jpeg({ mozjpeg: true }).toBuffer();
+
+    const new_metadata = await sharp(converted_buffer).metadata();
+
+    fs.writeFileSync(path.join(temp_dir, file_new_name), file_buffer);
+    return response.status(200).send({
+      filename: file_new_name,
+      old_metadata,
+      new_metadata,
+    });
+  },
+);
 
 app.get('/i/*', (request: any, response: any) => {
   const { url } = request;
   const file_name = url.replace('/i/', '');
-  const file_path = path.join(process.cwd(), `./temp/${file_name}`);
+  const file_path = path.join(temp_dir, file_name);
   if (fs.existsSync(file_path) === true) {
     // 200
     const file_buffer = fs.readFileSync(file_path);
