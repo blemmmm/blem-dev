@@ -2,6 +2,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 import { Socket } from 'socket.io';
+import * as os from 'os';
 
 const { createServer } = require('node:http');
 const { Server } = require('socket.io');
@@ -18,13 +19,23 @@ const io = new Server(server, { cors: 'https://groufie.blem.dev' });
 
 // Define routes and middleware here
 
-app.use(
-  cors({
-    origin: 'https://groufie.blem.dev', // Replace with your client's URL
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true, // Allow cookies and authentication headers
-  }),
-);
+if (os.platform() === 'linux') {
+  app.use(
+    cors({
+      origin: 'https://groufie.blem.dev', // Replace with your client's URL
+      methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+      credentials: true, // Allow cookies and authentication headers
+    }),
+  );
+} else {
+  app.use(
+    cors({
+      origin: true,
+      methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+      credentials: true, // Allow cookies and authentication headers
+    }),
+  );
+}
 
 app.use(express.static('../../client/dist/'));
 

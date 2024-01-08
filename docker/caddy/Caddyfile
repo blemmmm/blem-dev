@@ -21,3 +21,12 @@ imagehippo.blem.dev {
     protocols tls1.3
   }
 }
+
+hippodirect.blem.dev {
+  handle {
+    reverse_proxy groufie-server:3002
+  }
+  tls pera.blessly@gmail.com {
+    protocols tls1.3
+  }
+}

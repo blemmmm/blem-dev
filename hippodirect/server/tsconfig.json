@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "CommonJS",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "types": ["node", "express"],
+    "esModuleInterop": true
+  },
+  "include": ["src/**/*.ts", "./server/data/ecommerce.json"],
+  "exclude": ["node_modules"]
+}
