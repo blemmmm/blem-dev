@@ -13,7 +13,8 @@ const Projects = () => {
   return (
     <div className="flex flex-col">
       <span className="text-center mb-10 mt-5">Things I built so far</span>
-      <div className="grid grid-cols-3 gap-6 w-full">
+
+      <div className="grid grid-cols-1 px-[86px] sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full sm:px-6">
         <Card
           style={{ width: 250 }}
           cover={
