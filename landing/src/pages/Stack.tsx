@@ -3,7 +3,7 @@ import { Typography } from "antd";
 
 const Stack = () => {
   return (
-    <div className="flex flex-col justify-center gap-6 w-full h-full">
+    <div className="flex flex-col justify-center gap-6 w-full h-full p-4">
       <span className="text-center mb-10 mt-5">
         Technologies I’ve been working with recently
       </span>

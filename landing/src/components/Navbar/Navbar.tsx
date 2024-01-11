@@ -16,7 +16,7 @@ const Navbar = () => {
           type="primary"
           size="small"
           href="mailto:pera.blessly@gmail.com"
-          className="bg-gray-100 text-[#563156] border-none ring-0 text-sm !px-3 !h-8 flex items-center justify-center"
+          className="bg-gray-100 text-[#563156] border-none ring-0 text-sm !px-3 !h-8 flex items-center justify-center !mx-0"
         >
           <MailOutlined rev={undefined} /> Contact me
         </Button>

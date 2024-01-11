@@ -9,10 +9,10 @@ interface Props {
 
 export const DefaultLayout = ({ children }: Props) => {
   return (
-    <main className="flex flex-col justify-start scrollbar px-96">
+    <main className="scrollbar px-96">
       <CurrentlyLooking />
       <Navbar />
-      <div className="h-auto px-40">{children}</div>
+      <div className="h-auto px-40 pb-10">{children}</div>
     </main>
   );
 };

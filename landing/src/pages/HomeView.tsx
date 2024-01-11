@@ -28,6 +28,7 @@ import { animated, useSpring } from "react-spring";
 import Blessly from "@assets/blessly.jpg";
 import About from "./About";
 import Stack from "./Stack";
+import Projects from "./Projects";
 
 const HomeView = () => {
   const { opacity, transform } = useSpring({
@@ -63,7 +64,7 @@ const HomeView = () => {
     {
       label: "Projects",
       key: "projects",
-      children: `Content of Tab Pane $projects`,
+      children: <Projects />,
     },
   ];
 
