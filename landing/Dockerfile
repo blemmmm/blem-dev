@@ -10,7 +10,7 @@ RUN npm ci
 
 # client files
 
-COPY ["./", "./"]
+COPY [".", "."]
 
 # client build
 
