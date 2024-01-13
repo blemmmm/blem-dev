@@ -34,7 +34,7 @@ hippodirect.blem.dev {
 
 blem.dev {
   handle {
-    reverse_proxy blem-server:3000
+    reverse_proxy blem-server:8080
   }
   tls pera.blessly@gmail.com {
     protocols tls1.3
