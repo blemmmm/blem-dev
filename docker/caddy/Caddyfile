@@ -34,7 +34,7 @@ hippodirect.blem.dev {
 
 blem.dev {
   handle {
-    reverse_proxy groufie-server:5173
+    reverse_proxy blem-server:5173
   }
   tls pera.blessly@gmail.com {
     protocols tls1.3
