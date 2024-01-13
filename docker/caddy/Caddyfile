@@ -4,6 +4,7 @@
   }
 }
 
+
 groufie.blem.dev {
   handle {
     reverse_proxy groufie-server:3000
@@ -25,6 +26,15 @@ imagehippo.blem.dev {
 hippodirect.blem.dev {
   handle {
     reverse_proxy hippodirect-server:3002
+  }
+  tls pera.blessly@gmail.com {
+    protocols tls1.3
+  }
+}
+
+blem.dev {
+  handle {
+    reverse_proxy groufie-server:5173
   }
   tls pera.blessly@gmail.com {
     protocols tls1.3

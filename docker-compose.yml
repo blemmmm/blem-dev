@@ -1,5 +1,14 @@
 version: "3.8"
 services:
+  blem-server:
+    build:
+      context: ./landing/ # path of root directory
+      dockerfile: ./Dockerfile # path relative to root directory
+    restart: unless-stopped
+    ports:
+      - 5173:5173
+    networks:
+      - blem-network
   groufie-server:
     build:
       context: ./groufie/ # path of root directory
@@ -66,6 +75,7 @@ services:
       - groufie-server
       - imagehippo-server
       - hippodirect-server
+      - blem-server
 networks:
   blem-network:
     name: blem-network
