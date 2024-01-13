@@ -12,9 +12,7 @@ export const DefaultLayout = ({ children }: Props) => {
     <main className="scrollbar px-4 sm:px-8 md:px-16 lg:px-32 xl:px-96">
       <CurrentlyLooking />
       <Navbar />
-      <div className="h-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 pb-10">
-        {children}
-      </div>
+      <div className="h-auto px-4 sm:px-8 2xl:px-32  pb-10">{children}</div>
     </main>
   );
 };
