@@ -43,6 +43,6 @@ blem.dev {
 
 http://localhost, http://0.0.0.0 {
   handle {
-    reverse_proxy server:3000
+    reverse_proxy blem-server:3000
   }
 }
