@@ -2,18 +2,18 @@
 FROM node:18
 
 # client dependencies
-WORKDIR /client/
-COPY ["./client/package.json", "./client/package-lock.json", "./"]
+
+COPY ["./package.json", "./package-lock.json", "./"]
 RUN npm install -g typescript
 RUN npm install -g vite
 RUN npm ci
 
 # client files
-WORKDIR /client/
-COPY ["./client/", "./"]
+
+COPY ["./", "./"]
 
 # client build
-WORKDIR /client/
+
 RUN vite build
 
 RUN npm install -g serve
