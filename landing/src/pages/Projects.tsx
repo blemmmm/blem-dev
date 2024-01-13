@@ -38,7 +38,7 @@ const Projects = () => {
         >
           <Meta
             title={
-              <div className="flex items-center justify-start gap-2">
+              <div className="flex items-center justify-start gap-2 flex-wrap">
                 groufie
                 <Tag
                   bordered={false}
@@ -93,7 +93,7 @@ const Projects = () => {
         >
           <Meta
             title={
-              <div className="flex items-center justify-start gap-2">
+              <div className="flex items-center justify-start gap-2 flex-wrap">
                 ImageHippo
                 <Tag
                   bordered={false}
@@ -148,7 +148,7 @@ const Projects = () => {
         >
           <Meta
             title={
-              <div className="flex items-center justify-start gap-2">
+              <div className="flex items-center justify-start gap-2 flex-wrap">
                 HippoDirect
                 <Tag
                   bordered={false}
@@ -192,7 +192,7 @@ const Projects = () => {
         >
           <Meta
             title={
-              <div className="flex items-center justify-start gap-2">
+              <div className="flex items-center justify-start gap-2 flex-wrap">
                 whizpen
                 <Tag
                   bordered={false}
@@ -246,7 +246,7 @@ const Projects = () => {
         >
           <Meta
             title={
-              <div className="flex items-center justify-start gap-2">
+              <div className="flex items-center justify-start gap-2 flex-wrap">
                 bebot
                 <Tag
                   bordered={false}
@@ -293,7 +293,7 @@ const Projects = () => {
         >
           <Meta
             title={
-              <div className="flex flex-col items-start justify-start gap-2">
+              <div className="flex flex-col items-start justify-start gap-2 flex-wrap text-wrap">
                 Data Vizualization
                 <Tag
                   bordered={false}
