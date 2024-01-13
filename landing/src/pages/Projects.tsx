@@ -11,12 +11,12 @@ const Projects = () => {
   const { Meta } = Card;
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col items-center justify-center">
       <span className="text-center mb-10 mt-5">Things I built so far</span>
 
-      <div className="grid grid-cols-1 px-[86px] sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full sm:px-6">
+      <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
         <Card
-          style={{ width: 250 }}
+          style={{ width: "auto" }}
           cover={
             <img
               alt="groufie"
@@ -71,7 +71,7 @@ const Projects = () => {
           />
         </Card>
         <Card
-          style={{ width: 250 }}
+          style={{ width: "auto" }}
           cover={
             <img
               alt="imagehippo"
@@ -126,7 +126,7 @@ const Projects = () => {
           />
         </Card>
         <Card
-          style={{ width: 250 }}
+          style={{ width: "auto" }}
           cover={
             <img
               alt="HippoDirect"
@@ -181,7 +181,7 @@ const Projects = () => {
           />
         </Card>
         <Card
-          style={{ width: 250 }}
+          style={{ width: "auto" }}
           cover={
             <img
               alt="confidential"
@@ -230,7 +230,7 @@ const Projects = () => {
           />
         </Card>
         <Card
-          style={{ width: 250 }}
+          style={{ width: "auto" }}
           cover={
             <img
               alt="confidential"
@@ -282,7 +282,7 @@ const Projects = () => {
           />
         </Card>
         <Card
-          style={{ width: 250 }}
+          style={{ width: "auto" }}
           cover={
             <img
               alt="data-viz"

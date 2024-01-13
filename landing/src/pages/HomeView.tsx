@@ -70,13 +70,13 @@ const HomeView = () => {
 
   return (
     <div className="flex flex-col justify-center">
-      <div className="flex items-start justify-start gap-14">
+      <div className="flex flex-col md:flex-row items-center justify-start gap-14">
         <Avatar
           src={<img src={Blessly} alt="avatar" />}
           size={200}
           className="border border-solid border-gray-200"
         />
-        <div className="flex flex-col items-start justify-start gap-3">
+        <div className="flex flex-col items-center md:items-start justify-center md:justify-start gap-3">
           <Typography.Text className="font-bold text-3xl mb-2">
             Blessly Pera
           </Typography.Text>
@@ -102,7 +102,7 @@ const HomeView = () => {
             Front-end Web Developer
           </span>
 
-          <div className="flex flex-col items-start justify-start">
+          <div className="flex flex-col md:items-start md:justify-start items-center justify-center">
             <span className="text-xs font-normal flex items-center justify-center gap-2">
               super snack queen 2023
               <Icon icon="noto:crown" />
