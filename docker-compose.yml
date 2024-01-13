@@ -6,7 +6,7 @@ services:
       dockerfile: ./Dockerfile # path relative to root directory
     restart: unless-stopped
     ports:
-      - 5173:5173
+      - 3000:3000
     networks:
       - blem-network
   groufie-server:
@@ -15,7 +15,7 @@ services:
       dockerfile: ./Dockerfile # path relative to root directory
     restart: unless-stopped
     ports:
-      - 3000:3000
+      - 3003:3003
     networks:
       - blem-network
   imagehippo-server:
