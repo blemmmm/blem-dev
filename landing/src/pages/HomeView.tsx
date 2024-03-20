@@ -122,7 +122,7 @@ const HomeView = () => {
 
       <Divider className="mt-10 mb-1" />
 
-      <Tabs defaultActiveKey="1" centered items={tabItems} />
+      <Tabs defaultActiveKey="projects" centered items={tabItems} />
     </div>
   );
 };

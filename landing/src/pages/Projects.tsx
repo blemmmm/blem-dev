@@ -6,6 +6,12 @@ import {
   SettingOutlined,
 } from "@ant-design/icons";
 import { Avatar, Card, Tag } from "antd";
+import ImageHippo from "@assets/imagehippo.jpg";
+import Groufie from "@assets/groufie.png";
+import Meetings from "@assets/meetings.png";
+import Bebot from "@assets/bebot.png";
+import Whizpen from "@assets/whizpen.png";
+import Charts from "@assets/charts.png";
 
 const Projects = () => {
   const { Meta } = Card;
@@ -20,8 +26,8 @@ const Projects = () => {
           cover={
             <img
               alt="meetings"
-              className="border border-solid border-gray-200 object-cover h-52"
-              src="https://imagehippo.blem.dev/i/332c3f3cb21c93297c0878521d8059f72a73ce80a44588e07a4416dd.png"
+              className="border border-solid border-gray-200 object-cover object-left-top h-52"
+              src={Meetings}
             />
           }
           actions={[
@@ -49,8 +55,8 @@ const Projects = () => {
             description={
               <div className="flex flex-col">
                 <span className="text-xs">
-                  This is simple group chat demo. Any user who visits this page
-                  can join the chat.
+                  Host meetings anytime, anywhere, and connect with colleagues,
+                  friends, or clients effortlessly.
                 </span>
                 <div className="flex items-center justify-start my-2">
                   <Tag bordered={false} className="shadow-sm">
@@ -72,8 +78,8 @@ const Projects = () => {
           cover={
             <img
               alt="groufie"
-              className="border border-solid border-gray-200 object-cover h-52"
-              src="https://imagehippo.blem.dev/i/a28ec4d3d21014fa617a5ea95d9af3f906463c71559819c6999d6850.png"
+              className="border border-solid border-gray-200 object-center object-fill h-52"
+              src={Groufie}
             />
           }
           actions={[
@@ -128,7 +134,7 @@ const Projects = () => {
             <img
               alt="imagehippo"
               className="border border-solid border-gray-200 object-cover h-52"
-              src="https://imagehippo.blem.dev/i/a9b318c98e5e56f0230af7e2fc9548c272c29f76f82d6ef37bc034d3.png"
+              src={ImageHippo}
             />
           }
           actions={[
@@ -235,11 +241,13 @@ const Projects = () => {
         <Card
           style={{ width: "auto" }}
           cover={
-            <img
-              alt="confidential"
-              className="border border-solid border-gray-200 object-cover h-52 pointer-events-none"
-              src="https://imagehippo.blem.dev/i/f3a8c589a87102347d93a60e547c467cb20e21fd137f86f049f664da.png"
-            />
+            <div className="pointer-events-none">
+              <img
+                alt="confidential"
+                className="border border-solid border-gray-200 object-cover object-left-top h-52 "
+                src={Whizpen}
+              />
+            </div>
           }
         >
           <Meta
@@ -286,8 +294,8 @@ const Projects = () => {
           cover={
             <img
               alt="confidential"
-              className="border border-solid border-gray-200 object-cover h-52 pointer-events-none"
-              src="https://imagehippo.blem.dev/i/f3a8c589a87102347d93a60e547c467cb20e21fd137f86f049f664da.png"
+              className="border border-solid border-gray-200 object-cover object-left-top h-52 pointer-events-none"
+              src={Bebot}
             />
           }
           actions={[
@@ -339,7 +347,7 @@ const Projects = () => {
             <img
               alt="data-viz"
               className="border border-solid border-gray-200 object-scale-down h-52 pointer-events-none"
-              src="https://imagehippo.blem.dev/i/5002b8b890d165c6a3f84015432b19c27e7c10426c1947875b6e80d7.png"
+              src={Charts}
             />
           }
         >
