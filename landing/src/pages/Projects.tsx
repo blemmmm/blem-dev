@@ -19,6 +19,58 @@ const Projects = () => {
           style={{ width: "auto" }}
           cover={
             <img
+              alt="meetings"
+              className="border border-solid border-gray-200 object-cover h-52"
+              src="https://imagehippo.blem.dev/i/332c3f3cb21c93297c0878521d8059f72a73ce80a44588e07a4416dd.png"
+            />
+          }
+          actions={[
+            <a href="https://meetings-blesslypera.vercel.app" target="_blank">
+              <LinkOutlined key="setting" title="Live Demo" /> View Website
+            </a>,
+            <a href="https://github.com/blemmmm/meetings" target="_blank">
+              <GithubOutlined key="code" title="View Code" /> Github Repo
+            </a>,
+          ]}
+        >
+          <Meta
+            title={
+              <div className="flex items-center justify-start gap-2 flex-wrap">
+                Meetings
+                <Tag
+                  bordered={false}
+                  color="purple"
+                  className="text-[10px] font-light"
+                >
+                  Personal
+                </Tag>
+              </div>
+            }
+            description={
+              <div className="flex flex-col">
+                <span className="text-xs">
+                  This is simple group chat demo. Any user who visits this page
+                  can join the chat.
+                </span>
+                <div className="flex items-center justify-start my-2">
+                  <Tag bordered={false} className="shadow-sm">
+                    Next.js
+                  </Tag>
+                  <Tag bordered={false} className="shadow-sm">
+                    Typescript
+                  </Tag>
+                  <Tag bordered={false} className="shadow-sm">
+                    Dyte.io
+                  </Tag>
+                </div>
+              </div>
+            }
+          />
+        </Card>
+        <Card
+          style={{ width: "auto" }}
+          cover={
+            <img
               alt="groufie"
               className="border border-solid border-gray-200 object-cover h-52"
               src="https://imagehippo.blem.dev/i/a28ec4d3d21014fa617a5ea95d9af3f906463c71559819c6999d6850.png"
@@ -26,13 +78,13 @@ const Projects = () => {
           }
           actions={[
             <a href="https://groufie.blem.dev" target="_blank">
-              <LinkOutlined key="setting" title="Live Demo" />
+              <LinkOutlined key="setting" title="Live Demo" /> View Website
             </a>,
             <a
               href="https://github.com/blemmmm/blem-dev/tree/main/groufie"
               target="_blank"
             >
-              <GithubOutlined key="code" title="View Code" />
+              <GithubOutlined key="code" title="View Code" /> Github Repo
             </a>,
           ]}
         >
@@ -81,13 +133,13 @@ const Projects = () => {
           }
           actions={[
             <a href="https://imagehippo.blem.dev" target="_blank">
-              <LinkOutlined key="setting" title="Live Demo" />
+              <LinkOutlined key="setting" title="Live Demo" /> View Website
             </a>,
             <a
               href="https://github.com/blemmmm/blem-dev/tree/main/imagehippo"
               target="_blank"
             >
-              <GithubOutlined key="code" title="View Code" />
+              <GithubOutlined key="code" title="View Code" /> Github Repo
             </a>,
           ]}
         >
@@ -125,7 +177,7 @@ const Projects = () => {
             }
           />
         </Card>
-        <Card
+        {/* <Card
           style={{ width: "auto" }}
           cover={
             <img
@@ -136,13 +188,13 @@ const Projects = () => {
           }
           actions={[
             <a href="https://hippodirect.blem.dev" target="_blank">
-              <LinkOutlined key="setting" title="Live Demo" />
+              <LinkOutlined key="setting" title="Live Demo" /> View Website
             </a>,
             <a
               href="https://github.com/blemmmm/blem-dev/tree/main/hippodirect"
               target="_blank"
             >
-              <GithubOutlined key="code" title="View Code" />
+              <GithubOutlined key="code" title="View Code" /> Github Repo
             </a>,
           ]}
         >
@@ -179,7 +231,7 @@ const Projects = () => {
               </div>
             }
           />
-        </Card>
+        </Card> */}
         <Card
           style={{ width: "auto" }}
           cover={
@@ -240,7 +292,7 @@ const Projects = () => {
           }
           actions={[
             <a href="https://app.bebot.page" target="_blank">
-              <LinkOutlined key="setting" title="Live Demo" />
+              <LinkOutlined key="setting" title="Live Demo" /> View Website
             </a>,
           ]}
         >
