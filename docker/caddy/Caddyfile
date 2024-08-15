@@ -4,6 +4,23 @@
   }
 }
 
+api.tasks.blem.dev {
+  handle {
+    reverse_proxy tasks-server:5432
+  }
+  tls pera.blessly@gmail.com {
+    protocols tls1.3
+  }
+}
+
+tasks.blem.dev {
+  handle {
+    reverse_proxy tasks-server:3004
+  }
+  tls pera.blessly@gmail.com {
+    protocols tls1.3
+  }
+}
 
 groufie.blem.dev {
   handle {

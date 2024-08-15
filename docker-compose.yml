@@ -18,6 +18,15 @@ services:
       - 3003:3003
     networks:
       - blem-network
+  tasks-server:
+    build:
+      context: ./tasks/ # path of root directory
+      dockerfile: ./Dockerfile # path relative to root directory
+    restart: unless-stopped
+    ports:
+      - 3004:3004
+    networks:
+      - blem-network
   imagehippo-server:
     build:
       context: ./imagehippo/ # path of root directory
@@ -76,6 +85,21 @@ services:
       - imagehippo-server
       - hippodirect-server
       - blem-server
+      - tasks-server
+  postgres-server:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - blem-network
+volumes:
+  postgres_data:
 networks:
   blem-network:
     name: blem-network
