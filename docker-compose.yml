@@ -80,7 +80,6 @@ services:
       - imagehippo-server
       - blem-server
       - tasks-server
-      -
 networks:
   blem-network:
     name: blem-network
