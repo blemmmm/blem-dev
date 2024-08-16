@@ -4,14 +4,7 @@
   }
 }
 
-api.tasks.blem.dev {
-  handle {
-    reverse_proxy tasks-server:5432
-  }
-  tls pera.blessly@gmail.com {
-    protocols tls1.3
-  }
-}
+
 
 tasks.blem.dev {
   handle {
@@ -40,14 +33,14 @@ imagehippo.blem.dev {
   }
 }
 
-hippodirect.blem.dev {
-  handle {
-    reverse_proxy hippodirect-server:3002
-  }
-  tls pera.blessly@gmail.com {
-    protocols tls1.3
-  }
-}
+// hippodirect.blem.dev {
+//   handle {
+//     reverse_proxy hippodirect-server:3002
+//   }
+//   tls pera.blessly@gmail.com {
+//     protocols tls1.3
+//   }
+// }
 
 blem.dev {
   handle {

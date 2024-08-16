@@ -57,34 +57,6 @@ services:
       - 3001:3001
     networks:
       - blem-network
-  hippodirect-typesense:
-    image: typesense/typesense:0.25.2
-    ports:
-      - 8108:8108
-    environment:
-      TYPESENSE_DATA_DIR: /var/lib/typesense/data
-      TYPESENSE_API_KEY: ${TYPESENSE_API_KEY:?error}
-      TYPESENSE_API_PORT: 8108
-      TYPESENSE_ENABLE_CORS: true
-    volumes:
-      - ./docker/volumes/typesense/data:/var/lib/typesense/data
-    networks:
-      - blem-network
-  hippodirect-server:
-    build:
-      context: ./hippodirect/ # path of root directory
-      dockerfile: ./Dockerfile # path relative to root directory
-    environment:
-      TYPESENSE_API_KEY: ${TYPESENSE_API_KEY:?error}
-    restart: unless-stopped
-    ports:
-      - 3002:3002
-    networks:
-      - blem-network
-    depends_on:
-      - hippodirect-typesense
-    volumes:
-      - ./hippodirect/server:/app
   caddy:
     image: caddy:2
     restart: unless-stopped
@@ -104,11 +76,8 @@ services:
     depends_on:
       - groufie-server
       - imagehippo-server
-      - hippodirect-server
       - blem-server
       - tasks-server
-volumes:
-  postgres_data:
 networks:
   blem-network:
     name: blem-network
