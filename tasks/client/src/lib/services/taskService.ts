@@ -1,12 +1,11 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 
 import { useQuery } from 'react-query';
-import { config } from '../config';
 import { TaskPayload, TaskResponse } from '../interface/TaskTypes';
 
 export const useTaskService = () => {
   const fetchTasks = async (params = {}) => {
-    const endpoint = new URL(`${config.apiUrl}/api/tasks`);
+    const endpoint = new URL(`/api/tasks`);
     if (params) {
       Object.entries(params).forEach(([key, value]) => {
         if (value) {
@@ -28,7 +27,7 @@ export const useTaskService = () => {
   };
 
   const createTask = async (task: TaskPayload) => {
-    const response = await fetch(`${config.apiUrl}/api/tasks`, {
+    const response = await fetch(`/api/tasks`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -41,7 +40,7 @@ export const useTaskService = () => {
   };
 
   const updateTask = async (task: TaskPayload) => {
-    const response = await fetch(`${config.apiUrl}/api/tasks/${task.id}`, {
+    const response = await fetch(`/api/tasks/${task.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -54,7 +53,7 @@ export const useTaskService = () => {
   };
 
   const deleteTask = async (id: string) => {
-    const response = await fetch(`${config.apiUrl}/api/tasks/${id}`, {
+    const response = await fetch(`/api/tasks/${id}`, {
       method: 'DELETE',
     });
     const data = await response.json();

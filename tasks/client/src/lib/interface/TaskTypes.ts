@@ -13,4 +13,7 @@ export interface Task {
   created_at: string;
 }
 
-export type TaskResponse = Task[];
+export type TaskResponse = {
+  success: boolean;
+  tasks: Task[];
+};

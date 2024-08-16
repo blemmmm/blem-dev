@@ -16,7 +16,7 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useMutation, useQueryClient } from 'react-query';
 
 type StatusTypes = 'pending' | 'in_progress' | 'completed';
@@ -41,6 +41,13 @@ const HomePage = () => {
   const { mutateAsync: createTaskMutation } = useMutation(createTask);
   const { mutateAsync: updateTaskMutation } = useMutation(updateTask);
   const { mutateAsync: deleteTaskMutation } = useMutation(deleteTask);
+
+  const tasks = useMemo(() => {
+    if (tasksData) {
+      return tasksData.tasks;
+    }
+    return [];
+  }, [tasksData]);
 
   const handleCreateTask = async (task: TaskPayload) => {
     createTaskMutation(task, {
@@ -151,8 +158,8 @@ const HomePage = () => {
             </Select>
           </div>
 
-          {tasksData && tasksData.length > 0 ? (
-            tasksData.map((task) => (
+          {tasks.length > 0 ? (
+            tasks.map((task) => (
               <TaskCard
                 key={task.id}
                 task={task}

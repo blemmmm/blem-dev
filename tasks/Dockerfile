@@ -21,13 +21,18 @@ COPY ["./client/", "./"]
 WORKDIR /server/
 COPY ["./server/", "./"]
 
+# client test
+# WORKDIR /client/
+# RUN tsc
 
+# server test
+# WORKDIR /server/
+# RUN tsc
 
 # client build
 WORKDIR /client/
 RUN vite build
 
-EXPOSE 3004
 # server build
 WORKDIR /server/
-CMD npx --yes tsx ./src/index.mts
+CMD ["npx", "--yes", "tsx", "./src/app.mts"]
