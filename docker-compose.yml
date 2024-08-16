@@ -27,6 +27,27 @@ services:
       - 3004:3004
     networks:
       - blem-network
+    depends_on:
+      - tasks-postgres
+  tasks-postgres:
+    image: postgres:16
+    restart: unless-stopped
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./tasks/postgres/entrypoint:/docker-entrypoint-initdb.d
+      - ./tasks/postgres/data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready --username=postgres"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
+    networks:
+      - blem-network
   imagehippo-server:
     build:
       context: ./imagehippo/ # path of root directory
@@ -86,18 +107,6 @@ services:
       - hippodirect-server
       - blem-server
       - tasks-server
-  postgres-server:
-    image: postgres:latest
-    environment:
-      POSTGRES_DB: postgres
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-    ports:
-      - 5432:5432
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    networks:
-      - blem-network
 volumes:
   postgres_data:
 networks:

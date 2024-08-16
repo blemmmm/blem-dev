@@ -1,5 +1,5 @@
 # node lts
-FROM node:lts
+FROM node:18
 
 # client dependencies
 WORKDIR /client/
@@ -21,18 +21,13 @@ COPY ["./client/", "./"]
 WORKDIR /server/
 COPY ["./server/", "./"]
 
-# client test
-# WORKDIR /client/
-# RUN tsc
 
-# server test
-# WORKDIR /server/
-# RUN tsc
 
 # client build
 WORKDIR /client/
 RUN vite build
 
+EXPOSE 3004
 # server build
 WORKDIR /server/
-CMD ["npx", "--yes", "tsx", "./src/app.ts"]
+CMD npx --yes tsx ./src/index.mts
