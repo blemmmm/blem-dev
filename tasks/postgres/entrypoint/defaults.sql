@@ -20,3 +20,5 @@ VALUES
   ('Paint a portrait', 'I want to paint a portrait.', 'completed', now()),
   ('Build a house', 'I want to build a house.', 'in_progress', now()),
   ('Write a book', 'I want to write a book.', 'pending', now());
+
+SELECT * FROM public.tasks;

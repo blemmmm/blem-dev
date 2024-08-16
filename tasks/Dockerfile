@@ -21,13 +21,6 @@ COPY ["./client/", "./"]
 WORKDIR /server/
 COPY ["./server/", "./"]
 
-# client test
-# WORKDIR /client/
-# RUN tsc
-
-# server test
-# WORKDIR /server/
-# RUN tsc
 
 # client build
 WORKDIR /client/
