@@ -33,15 +33,6 @@ imagehippo.blem.dev {
   }
 }
 
-// hippodirect.blem.dev {
-//   handle {
-//     reverse_proxy hippodirect-server:3002
-//   }
-//   tls pera.blessly@gmail.com {
-//     protocols tls1.3
-//   }
-// }
-
 blem.dev {
   handle {
     reverse_proxy blem-server:3000
