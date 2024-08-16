@@ -26,12 +26,12 @@ services:
     ports:
       - 3004:3004
     environment:
-      POSTGRES_HOST: tasks-postgres
+      POSTGRES_HOST: postgres
     networks:
       - blem-network
     depends_on:
-      - tasks-postgres
-  tasks-postgres:
+      - postgres
+  postgres:
     image: postgres:16
     restart: unless-stopped
     ports:
