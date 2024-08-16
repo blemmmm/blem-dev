@@ -25,6 +25,8 @@ services:
     restart: unless-stopped
     ports:
       - 3004:3004
+    environment:
+      POSTGRES_HOST: tasks-postgres
     networks:
       - blem-network
     depends_on:
