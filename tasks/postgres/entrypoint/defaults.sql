@@ -4,7 +4,10 @@ DROP SCHEMA IF EXISTS public CASCADE;
 
 CREATE SCHEMA public;
 
+GRANT ALL PRIVILEGES ON DATABASE public TO postgres;
+
 /* TABLES */
+SELECT 
 
 CREATE TABLE public.tasks (
   "id" uuid DEFAULT gen_random_uuid() PRIMARY KEY NOT NULL,
