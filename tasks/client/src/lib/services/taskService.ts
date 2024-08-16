@@ -5,7 +5,7 @@ import { TaskPayload, TaskResponse } from '../interface/TaskTypes';
 
 export const useTaskService = () => {
   const fetchTasks = async (params = {}) => {
-    const endpoint = new URL(`${window.location.origin}/api/tasks`);
+    const endpoint = new URL(`/api/tasks`);
     if (params) {
       Object.entries(params).forEach(([key, value]) => {
         if (value) {
