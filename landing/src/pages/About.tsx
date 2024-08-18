@@ -10,15 +10,6 @@ const About = () => {
       development.
       <br />
       <br />
-      At Media Meter, Inc., I whip up cool interfaces and make them work like a
-      charm using ReactJS, Typescript, Vite, TailwindCSS, and other tools. My
-      time here significantly developed not just my technical skills but also my
-      leadership abilities, particularly through spearheading numerous front-end
-      projects. But before that, I contributed to the online presence of a big
-      US eCommerce platform as a Content Specialist at Insight Direct
-      Philippines for almost 5 years.
-      <br />
-      <br />
       As a coworker, I am known for making the room sparkle with good vibes,
       you'll rarely catch me without a smile. I like inviting colleagues for a
       quick snack at the pantry or to have a coffee break. Although I might
