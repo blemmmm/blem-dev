@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { DefaultLayout } from "@layouts/Default";
+import { DefaultLayout } from "@/layouts/Default";
 
 export type Layouts = "default";
 

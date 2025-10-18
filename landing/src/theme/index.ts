@@ -10,7 +10,7 @@ export const theme: ThemeConfig = {
   token: {
     fontFamily: "Noto Sans",
     colorPrimary: "#563156",
-    colorTextBase: "#333333",
+    colorTextBase: "#1c1c1c",
 
     screenXXLMin: 1536,
 

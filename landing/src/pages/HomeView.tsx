@@ -1,34 +1,10 @@
-import {
-  CopyOutlined,
-  GithubFilled,
-  LinkedinFilled,
-  MailOutlined,
-  MobileOutlined,
-  TwitterOutlined,
-} from "@ant-design/icons";
-import HeroSVG from "@assets/hero.svg";
-import ImageHippo from "@assets/imagehippo.jpg";
-import PortfolioSVG from "@assets/portfolio.svg";
-import ContactLogo from "@assets/undraw_personal_email_svg.svg";
+import Blessly from "@/assets/blessly.jpeg";
+import { GithubFilled, LinkedinFilled, MailFilled } from "@ant-design/icons";
 import { Icon } from "@iconify/react";
-import {
-  Avatar,
-  Button,
-  Col,
-  Divider,
-  Row,
-  Space,
-  Tabs,
-  Tag,
-  Typography,
-  message,
-} from "antd";
-import { CopyToClipboard } from "react-copy-to-clipboard";
-import { animated, useSpring } from "react-spring";
-import Blessly from "@assets/blessly.jpg";
-import About from "./About";
-import Stack from "./Stack";
-import Projects from "./Projects";
+import { Avatar, Divider, Tabs, Tag, Typography } from "antd";
+import { useSpring } from "react-spring";
+import Projects from "./Projects.js";
+import Stack from "./Stack.js";
 
 const HomeView = () => {
   const { opacity, transform } = useSpring({
@@ -38,24 +14,7 @@ const HomeView = () => {
     delay: 500,
   });
 
-  const animationProps = {
-    opacity,
-    transform,
-  };
-
-  const { opacity: upOpacity, transform: upTransform } = useSpring({
-    opacity: 1,
-    transform: "translateY(0)",
-    from: { opacity: 0, transform: "translateX(0px)" },
-    delay: 2000,
-  });
-
   const tabItems = [
-    {
-      label: "About Me",
-      key: "about",
-      children: <About />,
-    },
     {
       label: "Tech Stack",
       key: "stack",
@@ -70,12 +29,15 @@ const HomeView = () => {
 
   return (
     <div className="flex flex-col justify-center">
-      <div className="flex flex-col md:flex-row items-center justify-start gap-14">
-        <Avatar
-          src={<img src={Blessly} alt="avatar" />}
-          size={200}
-          className="border border-solid border-gray-200"
-        />
+      <div className="flex flex-col md:flex-row items-center justify-start gap-10 mx-auto max-w-screen-md">
+        <div className="w-fit h-full">
+          <Avatar
+            src={<img src={Blessly} alt="avatar" draggable={false} />}
+            size={200}
+            className="border border-solid border-gray-200 "
+          />
+        </div>
+
         <div className="flex flex-col items-center md:items-start justify-center md:justify-start gap-3">
           <Typography.Text className="font-bold text-3xl mb-2">
             Blessly Pera
@@ -99,23 +61,18 @@ const HomeView = () => {
             </a>
           </div>
           <span className="text-sm text-gray-400 font-normal">
-            Front-end Web Developer
+            Senior Front-end Web Developer
           </span>
 
-          <div className="flex flex-col md:items-start md:justify-start items-center justify-center">
-            <span className="text-xs font-normal flex items-center justify-center gap-2">
-              super snack queen 2023
-              <Icon icon="noto:crown" />
-            </span>
-            <span className="text-xs font-normal flex items-center justify-center gap-2">
-              blood type: coffee <Icon icon="noto:brown-heart" />
-            </span>
-            <span className="text-xs font-normal flex items-center justify-center gap-2">
-              let's build amazing things <Icon icon="noto:rocket" />
-            </span>
-            <span className="text-xs font-normal flex items-center justify-center gap-2">
-              ReactJS | TypeScript <Icon icon="ph:code-bold" />
-            </span>
+          <div className="flex flex-col md:items-start md:justify-start items-center justify-center gap-2">
+            <p className="text-xs font-normal flex items-center justify-center gap-2 text-center md:text-left">
+              With 4+ years of experience in NextJS, ReactJS, and TypeScript.
+              Specialized in building scalable, high-performing web applications
+              with clean, maintainable code.
+            </p>
+            <p className="text-xs font-normal flex items-center justify-center gap-2 text-center md:text-left">
+              <MailFilled rev={undefined} /> pera.blessly@gmail.com
+            </p>
           </div>
         </div>
       </div>
