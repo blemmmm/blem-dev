@@ -171,6 +171,11 @@ const Projects = () => {
                 draggable={false}
               />
             }
+            actions={[
+              <a href={project.link} target="_blank">
+                <LinkOutlined key="setting" title="View" /> Visit Page
+              </a>,
+            ]}
           >
             <Meta
               title={
